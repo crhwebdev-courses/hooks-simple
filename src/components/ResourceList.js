@@ -13,9 +13,10 @@ const ResourceList = ({ resource }) => {
     setResources(response.data);
   };
 
+  // Note: second argument tells useEffect to rerender (if it changes)
   useEffect(() => {
     fetchResource(resource);
-  }, []);
+  }, [resource]);
 
   return <div>{resources.length}</div>;
 };
