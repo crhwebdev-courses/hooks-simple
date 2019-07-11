@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
-const ResourceList = () => {
+const ResourceList = ({ resource }) => {
   //set state using hook
   const [resources, setResources] = useState([]);
 
-  const fetchResource = async () => {
+  const fetchResource = async resource => {
     const response = await Axios.get(
-      `https://jsonplaceholder.typicode.com/${this.props.resource}`
+      `https://jsonplaceholder.typicode.com/${resource}`
     );
 
-    this.setState({ resources: response.data });
+    setResources(response.data);
   };
+
+  useEffect(() => {
+    fetchResource(resource);
+  }, []);
 
   return <div>{resources.length}</div>;
 };
