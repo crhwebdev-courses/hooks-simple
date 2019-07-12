@@ -13,7 +13,8 @@ const ResourceList = ({ resource }) => {
     setResources(response.data);
   };
 
-  // Note: second argument tells useEffect to rerender (if it changes)
+  // Note: second argument tells useEffect to rerender (if it changes) - all items
+  // in the array will be checked for a change
   useEffect(() => {
     fetchResource(resource);
   }, [resource]);
